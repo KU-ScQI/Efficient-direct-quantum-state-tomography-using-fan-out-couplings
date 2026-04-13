@@ -102,7 +102,7 @@ For example:
 ```python
 df_confu['n=4']
 ```
-returns a list of length 5 (4 system qubits + 1 ancilla), where each element is a 2$\times 2$ matrix of the form 
+returns a list of length 5 (4 system qubits + 1 ancilla), where each element is a $2\times 2$ matrix of the form 
 
 ```python
 [[P(0|0), P(0|1)],
