@@ -25,3 +25,6 @@ $U_{\mathrm{ES}}^{\mathbf{1}} = X^{\otimes n}$.
 `confusion_full_reconstruction.pkl` contains the readout confusion matrices for each qubit used in the density matrix reconstruction experiments.
 
 `confusion_GHZ_fidest.pkl` contains the readout confusion matrices for each qubit used in the n-qubit GHZ state fidelity estimation experiments.
+
+### 4. Demo.ipynb
+`Demo.ipynb` demonstrates how the data from `DQST_full_reconstruction_data.csv` and `GHZ_fidelity_estimation_data.csv` are processed to reproduce Fig. 2, Table 1 (DQST results), and Fig. 3b and 3c.
