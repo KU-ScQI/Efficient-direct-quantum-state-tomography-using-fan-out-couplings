@@ -44,7 +44,8 @@ Each dictionary has the form:
     '00001': count,
     ...
     '11111': count
-}```
+}
+```
 
 ### 2. GHZ-state fidelity estimation
 `GHZ_fidelity_estimation_data.csv` contains experimental data obtained from IBM Quantum (backend: IBM_aachen) for system sizes n = 4, 5, 6, 7, 8, 9, 10, 15, and 20, where n denotes the number of system qubits.
