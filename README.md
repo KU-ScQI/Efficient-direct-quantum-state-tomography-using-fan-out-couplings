@@ -113,8 +113,4 @@ Here, $P(i|j)$ dentoes the probability of measuring state i given that the true 
 ### 4. Demo.ipynb
 `Demo.ipynb` demonstrates how the data from `DQST_full_reconstruction_data.csv` and `GHZ_fidelity_estimation_data.csv` are processed to reproduce Fig. 2, Table 1 (DQST results), and Fig. 3b and 3c.
 
-[figure2.pdf](https://github.com/user-attachments/files/26669446/figure2.pdf)
-[table 1.pdf](https://github.com/user-attachments/files/26669458/table.1.pdf)
-[figure3_1.pdf](https://github.com/user-attachments/files/26669448/figure3_1.pdf)
-
 
