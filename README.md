@@ -1,4 +1,4 @@
-<img width="581" height="331" alt="image" src="https://github.com/user-attachments/assets/293c03fc-2041-4383-a657-c275bdc1d245" /># Efficient-direct-quantum-state-tomography-using-fan-out-couplings
+# Efficient-direct-quantum-state-tomography-using-fan-out-couplings
 
 Code for reproducing results in Efficient direct quantum state tomography using fan-out couplings.
 
