@@ -52,7 +52,26 @@ Each dictionary has the form:
 
 For each value of n, the GHZ fidelity is estimated using a single circuit configuration given by
 $U_{\mathrm{ES}}^{\mathbf{1}} = X^{\otimes n}$.
+#### Data format
+Datas can be loaded by the following code.
+```bash
+df_GHZ_fidest = pd.read_csv("GHZ_fidelity_estimation_data.csv", header=[0,1],index_col=0)
+df_GHZ_fidest = df_GHZ_fidest.applymap(ast.literal_eval)
+```
 
+The GHZ fidelity estimation data are stored in a pandas DataFrame indexed by system size:
+- `n=4, 5, 6, 7, 8, 9, 10, 15, 20`
+
+Each entry (e.g., `df_GHZ_fidest['n=4']`) contains results for different noise amplification factors:
+- `zne=1`, `zne=3`, `zne=5`
+
+These correspond to repeating the $U_{\mathrm{ES}}$ gate 1, 3, and 5 times, respectively.
+
+For each `(n, zne)` pair, the data consist of a list of length 100:
+- Each element corresponds to a randomly sampled Pauli twirling instance,
+- A total of 100 random Pauli sets were created.
+
+Each element in the list is a dictionary of measurement counts.
 
 
 ### 3. Confusion matrices
