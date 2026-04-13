@@ -28,7 +28,7 @@ Each column corresponds to measurement data for a specific 4-qubit state.
 Each entry in these columns is a list of length 31, where each element is a dictionary representing the measurement counts obtained from a single circuit execution. The counts have been preprocessed to correct the bitstring ordering of IBM Quantum outputs.
 
 - The indices `[0]` to `[30]` correspond to the 31 circuit configurations used in the DQST protocol, in the following order:
-  - `[0]`: $U_{\mathrm{ES}}^{\mathbf{k}} = \mathrm{IIII}$ (diagonal measurement)
+  - `[0]`: $U_{\mathrm{ES}}^{\mathbf{0}} = \mathrm{IIII}$ (diagonal measurement)
   - `[1]`–`[15]`: the set $U_{\mathrm{ES}}^{\mathbf{k}}=$ {XXXX, XIII, IXII, IIXI, IIIX, XXII, XIXI, XIIX, IXXI, IXIX, IIXX, XXXI, XXIX, XIXX, IXXX} with the meter qubit X-basis measurement circuits
   - `[16]`–`[30]`: the same set with the meter qubit Y-basis measurement circuits
 
