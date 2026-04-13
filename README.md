@@ -29,7 +29,7 @@ The dataset is stored as a pandas DataFrame with three columns:
 
 Each column corresponds to measurement data for a specific 4-qubit state.
 
-Each entry in these columns is a list of length 31, where each element is a dictionary representing the measurement counts obtained from a single circuit execution.
+Each entry in these columns is a list of length 31, where each element is a dictionary representing the measurement counts obtained from a single circuit execution. The counts have been preprocessed to correct the bitstring ordering of IBM Quantum outputs.
 
 - The indices `[0]` to `[30]` correspond to the 31 circuit configurations used in the DQST protocol, in the following order:
   - `[0]`: $U_{\mathrm{ES}} = \mathrm{IIII}$ (diagonal measurement)
