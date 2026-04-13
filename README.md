@@ -107,6 +107,12 @@ returns a list of length 5 (4 system qubits + 1 ancilla), where each element is 
 Here, $P(i|j)$ dentoes the probability of measuring state i given that the true state is j.
 
 ### 4. Demo.ipynb
-`Demo.ipynb` demonstrates how the data from `DQST_full_reconstruction_data.csv` and `GHZ_fidelity_estimation_data.csv` are processed to reproduce Fig. 2, Table 1 (DQST results), and Fig. 3b and 3c.
+`Demo.ipynb` demonstrates how the data from `DQST_full_reconstruction_data.csv` and `GHZ_fidelity_estimation_data.csv` are processed to reproduce Fig. 2, Table 1 (DQST results), and Fig. 3b and 3c, which constitute the main results of this work.
+
+`DQST_full_tomography.py` contains the code used to reproduce Fig. 2 and Table 1 (DQST results).
+
+`GHZ_fidelity_estimation.py` contains the code used to reproduce Fig. 3b and 3c.
+
+`helper.py` contains additional utility functions used throughout the codebase.
 
 
