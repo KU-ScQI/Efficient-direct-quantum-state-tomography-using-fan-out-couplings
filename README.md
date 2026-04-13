@@ -28,9 +28,9 @@ Each column corresponds to measurement data for a specific 4-qubit state.
 Each entry in these columns is a list of length 31, where each element is a dictionary representing the measurement counts obtained from a single circuit execution. The counts have been preprocessed to correct the bitstring ordering of IBM Quantum outputs.
 
 - The indices `[0]` to `[30]` correspond to the 31 circuit configurations used in the DQST protocol, in the following order:
-  - `[0]`: $U_{\mathrm{ES}} = \mathrm{IIII}$ (diagonal measurement)
-  - `[1]`–`[15]`: the set $U_{\mathrm{ES}}^{\mathbf{k}}=$ {XXXX, XIII, IXII, IIXI, IIIX, XXII, XIXI, XIIX, IXXI, IXIX, IIXX, XXXI, XXIX, XIXX, IXXX} with X-basis measurement circuits
-  - `[16]`–`[30]`: the same set with Y-basis measurement circuits
+  - `[0]`: $U_{\mathrm{ES}}^{\mathbf{k}} = \mathrm{IIII}$ (diagonal measurement)
+  - `[1]`–`[15]`: the set $U_{\mathrm{ES}}^{\mathbf{k}}=$ {XXXX, XIII, IXII, IIXI, IIIX, XXII, XIXI, XIIX, IXXI, IXIX, IIXX, XXXI, XXIX, XIXX, IXXX} with the meter qubit X-basis measurement circuits
+  - `[16]`–`[30]`: the same set with the meter qubit Y-basis measurement circuits
 
 Each dictionary has the form:
 
@@ -61,7 +61,7 @@ The GHZ fidelity estimation data are stored in a pandas DataFrame indexed by sys
 Each entry (e.g., `df_GHZ_fidest['n=4']`) contains results for different noise amplification factors:
 - `zne=1`, `zne=3`, `zne=5`
 
-These correspond to repeating the $U_{\mathrm{ES}}$ gate 1, 3, and 5 times, respectively.
+These correspond to repeating the $U_{\mathrm{ES}}^{\mathbf{1}}$ gate 1, 3, and 5 times, respectively.
 
 For each `(n, zne)` pair, the data consist of a list of length 100:
 - Each element corresponds to a randomly sampled Pauli twirling instance,
