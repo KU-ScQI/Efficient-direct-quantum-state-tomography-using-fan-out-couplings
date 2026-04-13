@@ -38,7 +38,7 @@ Each entry in these columns is a list of length 31, where each element is a dict
 
 Each dictionary has the form:
 
-```bash
+```python
 {
     '00000': count,
     '00001': count,
