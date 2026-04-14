@@ -59,11 +59,11 @@ def DQST_full_tomography(count_list,total_shot):
 
     real_result = []
     for data in off_diag_real_data:
-        real_result.append(process_measurement(data, total_shot, order, op='off_diag'))
+        real_result.append(process_measurement(data, total_shot, order, op='off_diag_real'))
 
     imag_result = []
     for data in off_diag_imag_data:
-        imag_result.append(process_measurement(data, total_shot, order, op='off_diag'))
+        imag_result.append(process_measurement(data, total_shot, order, op='off_diag_imag'))
 
     circuit_index=['XXXX', 'XIII', 'IXII','IIXI','IIIX','XXII','XIXI','XIIX','IXXI','IXIX','IIXX','XXXI','XXIX','XIXX','IXXX'] #order depends on the order of circuit we executed
     
