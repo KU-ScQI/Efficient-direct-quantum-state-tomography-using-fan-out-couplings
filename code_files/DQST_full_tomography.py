@@ -34,8 +34,10 @@ def process_measurement(data_dict, total_shot, order, op='diag'):
 
     if op == 'diag':
         result = {k: (v[0] + v[1]) / total_shot for k, v in grouped.items()}
-    else:  # op == 'off_diag'
+    elif op == 'off_diag_real':
         result = {k: (v[1] - v[0]) / total_shot for k, v in grouped.items()}
+    else:
+        result = {k: (v[0] - v[1]) / total_shot for k, v in grouped.items()} 
 
     return [result[k] for k in order]
 
