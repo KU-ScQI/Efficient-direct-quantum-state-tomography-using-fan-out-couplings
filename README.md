@@ -83,11 +83,21 @@ For each `(n, zne)` pair, the data consist of a list of length 100:
 - Each element corresponds to a randomly sampled Pauli twirling instance,
 - A total of 100 random Pauli sets were created.
 
-Each element in the list is a dictionary of measurement counts. For the GHZ-state fidelity estimation, only four outcomes are required: 00...00, 00...01, 11...10, 11...11. Therefore, for every system size n and each ZNE noise-scaling factor, we report only the counts corresponding to these four bit strings. Both the raw measurement counts and the counts after QREM are provided in this format.
+Each element in the list is a dictionary of measurement counts. For the GHZ-state fidelity estimation, only four outcomes are required: 00...00, 00...01, 11...10, 11...11. Therefore, for every system size n and each ZNE noise-scaling factor, we report only the counts corresponding to these four bit strings:
+
+```python
+{
+    '00...00': count,
+    '00...01': count,
+    '11...10': count,
+    '11...11': count
+}
+```
+Both the raw measurement counts and the counts after QREM are provided in this format.
 
 
 ### 4. Demo.ipynb
-`Demo.ipynb` demonstrates how the data from `DQST_full_reconstruction_data.csv` and `GHZ_fidelity_estimation_data.csv` are processed to reproduce Fig. 2, Table 1 (DQST results), and Fig. 3b and 3c, which constitute the main results of this work.
+`Demo.ipynb` demonstrates how the data from `DQST_full_reconstruction_data.csv`, `DQST_full_reconstruction_data_QREM.csv` and `GHZ_fidelity_estimation_data_raw.csv`,`GHZ_fidelity_estimation_data_QREM.csv` are processed to reproduce Fig. 2, Table 1 (DQST results), and Fig. 3b and 3c, which constitute the main results of this work.
 
 `DQST_full_tomography.py` contains the code used to reproduce Fig. 2 and Table 1 (DQST results).
 
