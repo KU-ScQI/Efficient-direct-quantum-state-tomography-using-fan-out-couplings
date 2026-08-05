@@ -12,11 +12,20 @@ pip install -r requirements.txt
 
 #### Data format
 Datas can be loaded by the following code.
+For datas without readout mitigation:
 ```bash
 df = pd.read_csv("DQST_full_reconstruction_data.csv")
 df['GHZ'] = df['GHZ'].apply(ast.literal_eval)
 df['0state'] = df['0state'].apply(ast.literal_eval)
 df['+state'] = df['+state'].apply(ast.literal_eval)
+```
+
+For datas with readout mitigation applied:
+```bash
+df_QREM = pd.read_csv("DQST_full_reconstruction_data_QREM.csv")
+df_QREM['GHZ'] = df_QREM['GHZ'].apply(ast.literal_eval)
+df_QREM['0state'] = df_QREM['0state'].apply(ast.literal_eval)
+df_QREM['+state'] = df_QREM['+state'].apply(ast.literal_eval)
 ```
 The dataset is stored as a pandas DataFrame with three columns:
 - `GHZ`
