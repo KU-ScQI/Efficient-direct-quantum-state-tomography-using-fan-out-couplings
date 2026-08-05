@@ -8,7 +8,7 @@ pip install -r requirements.txt
 ```
 ## Usage
 ### 1. Density matrix reconstruction
-`DQST_full_reconstruction_data.csv` contains experimental data obtained from IBM Quantum (backend: IBM_aachen) for three 4-qubit states: the GHZ state, the computational basis state |0000⟩, and the |++++⟩ state.
+`DQST_full_reconstruction_data.csv` and `DQST_full_reconstruction_data_QREM.csv` contains experimental data obtained from IBM Quantum (backend: IBM_aachen) for three 4-qubit states: the GHZ state, the computational basis state |0000⟩, and the |++++⟩ state.
 
 #### Data format
 Datas can be loaded by the following code.
@@ -53,7 +53,7 @@ Each dictionary has the form:
 ```
 
 ### 2. GHZ-state fidelity estimation
-`GHZ_fidelity_estimation_data_raw.csv` contains experimental data obtained from IBM Quantum (backend: IBM_aachen) for system sizes n = 4, 5, 6, 7, 8, 9, 10, 15, and 20, where n denotes the number of system qubits. 
+`GHZ_fidelity_estimation_data_raw.csv` and `GHZ_fidelity_estimation_data_QREM.csv` contains experimental data obtained from IBM Quantum (backend: IBM_aachen) for system sizes n = 4, 5, 6, 7, 8, 9, 10, 15, and 20, where n denotes the number of system qubits. 
 
 For each value of n, the GHZ fidelity is estimated using a single circuit configuration given by
 $U_{\mathrm{ES}}^{\mathbf{1}} = X^{\otimes n}$.
