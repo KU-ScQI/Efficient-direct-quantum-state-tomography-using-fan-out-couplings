@@ -53,21 +53,28 @@ Each dictionary has the form:
 ```
 
 ### 2. GHZ-state fidelity estimation
-`GHZ_fidelity_estimation_data.csv` contains experimental data obtained from IBM Quantum (backend: IBM_aachen) for system sizes n = 4, 5, 6, 7, 8, 9, 10, 15, and 20, where n denotes the number of system qubits.
+`GHZ_fidelity_estimation_data_raw.csv` contains experimental data obtained from IBM Quantum (backend: IBM_aachen) for system sizes n = 4, 5, 6, 7, 8, 9, 10, 15, and 20, where n denotes the number of system qubits. 
 
 For each value of n, the GHZ fidelity is estimated using a single circuit configuration given by
 $U_{\mathrm{ES}}^{\mathbf{1}} = X^{\otimes n}$.
 #### Data format
 Datas can be loaded by the following code.
+For datas without readout mitigation:
 ```bash
-df_GHZ_fidest = pd.read_csv("GHZ_fidelity_estimation_data.csv", header=[0,1],index_col=0)
-df_GHZ_fidest = df_GHZ_fidest.applymap(ast.literal_eval)
+df_GHZ_raw = pd.read_csv("GHZ_fidelity_estimation_data_raw.csv", header=[0,1],index_col=0)
+df_GHZ_raw = df_GHZ_raw.applymap(ast.literal_eval)
+```
+
+For datas with readout mitigation applied:
+```bash
+df_GHZ_mit = pd.read_csv("GHZ_fidelity_estimation_data_QREM.csv", header=[0,1],index_col=0)
+df_GHZ_mit = df_GHZ_mit.applymap(ast.literal_eval)
 ```
 
 The GHZ fidelity estimation data are stored in a pandas DataFrame indexed by system size:
 - `n=4, 5, 6, 7, 8, 9, 10, 15, 20`
 
-Each entry (e.g., `df_GHZ_fidest['n=4']`) contains results for different noise amplification factors:
+Each entry (e.g., `df_GHZ_raw['n=4']`) contains results for different noise amplification factors:
 - `zne=1`, `zne=3`, `zne=5`
 
 These correspond to repeating the $U_{\mathrm{ES}}^{\mathbf{1}}$ gate 1, 3, and 5 times, respectively.
@@ -76,44 +83,8 @@ For each `(n, zne)` pair, the data consist of a list of length 100:
 - Each element corresponds to a randomly sampled Pauli twirling instance,
 - A total of 100 random Pauli sets were created.
 
-Each element in the list is a dictionary of measurement counts.
+Each element in the list is a dictionary of measurement counts. For the GHZ-state fidelity estimation, only four outcomes are required: 00...00, 00...01, 11...10, 11...11. Therefore, for every system size n and each ZNE noise-scaling factor, we report only the counts corresponding to these four bit strings. Both the raw measurement counts and the counts after QREM are provided in this format.
 
-
-### 3. Confusion matrices
-`confusion_full_reconstruction.pkl` contains the readout confusion matrices for each qubit used in the density matrix reconstruction experiments. 
-
-`confusion_GHZ_fidest.pkl` contains the readout confusion matrices for each qubit used in the n-qubit GHZ state fidelity estimation experiments.
-
-#### Data format
-Datas can be loaded by the following code.
-
-```bash
-confu_4q=pd.read_pickle("confusion_full_reconstruction.pkl") #for density matrix reconstruction experiment
-df_confu = pd.read_pickle("confusion_GHZ_fidest.pkl") # for GHZ-state fidelity estimation experiment
-```
-##### 1) Data format for confusion matrix datas in density matrix reconstruction experiment
-For the density matrix reconstruction experiment, the confusion matrix is stored as a full-system matrix.
-
-`confu_4q` is a $2^5 \times 2^5$ NumPy array obtained by taking the tensor product of the single-qubit confusion matrices.
-
-##### 2) Data format for confusion matrix datas in GHZ-state fidelity estimation experiment
-The confusion matrices are stored in a dictionary-like structure indexed by system size:
-- `n=4, 5, 6, 7, 8, 9, 10, 15, 20`
-
-Each entry (e.g., `df_confu['n=4']`) is a list of 2×2 readout confusion matrices, one for each qubit used in the experiment.
-
-For example:
-
-```python
-df_confu['n=4']
-```
-returns a list of length 5 (4 system qubits + 1 ancilla), where each element is a $2\times 2$ matrix of the form 
-
-```python
-[[P(0|0), P(0|1)],
- [P(1|0), P(1|1)]]
-```
-Here, $P(i|j)$ dentoes the probability of measuring state i given that the true state is j.
 
 ### 4. Demo.ipynb
 `Demo.ipynb` demonstrates how the data from `DQST_full_reconstruction_data.csv` and `GHZ_fidelity_estimation_data.csv` are processed to reproduce Fig. 2, Table 1 (DQST results), and Fig. 3b and 3c, which constitute the main results of this work.
